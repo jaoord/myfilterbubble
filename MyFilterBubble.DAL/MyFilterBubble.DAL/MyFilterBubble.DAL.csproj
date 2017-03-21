@@ -67,8 +67,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppStart.cs" />
+    <Compile Include="Initializer.cs" />
+    <Compile Include="Commands\SaveFeedItemCommand.cs" />
+    <Compile Include="Commands\UpdateFeedItemSystemClassificationCommand.cs" />
+    <Compile Include="Commands\SaveLastFetchDateCommand.cs" />
+    <Compile Include="DTO\ClassifiedFeedItemDto.cs" />
     <Compile Include="DTO\FeedDto.cs" />
+    <Compile Include="DTO\UnclassifiedFeedItemDto.cs" />
+    <Compile Include="DTO\RawFeedItemDto.cs" />
+    <Compile Include="DTO\UserClassifiedFeedItemDto.cs" />
     <Compile Include="Entities\Feed.cs" />
     <Compile Include="Entities\FeedItem.cs" />
     <Compile Include="EntityConfig\FeedConfiguration.cs" />
@@ -81,24 +88,38 @@
     <Compile Include="Migrations\201703202025144_FeedItemSourceId.Designer.cs">
       <DependentUpon>201703202025144_FeedItemSourceId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703211956200_FeedItem_Classification.cs" />
+    <Compile Include="Migrations\201703211956200_FeedItem_Classification.Designer.cs">
+      <DependentUpon>201703211956200_FeedItem_Classification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703212034300_FeedItem_IsTrained.cs" />
+    <Compile Include="Migrations\201703212034300_FeedItem_IsTrained.Designer.cs">
+      <DependentUpon>201703212034300_FeedItem_IsTrained.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyFilterBubbleContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\GetFeedsQuery.cs" />
+    <Compile Include="Queries\GetStaleFeedsQuery.cs" />
+    <Compile Include="Queries\GetUserClassifiedFeedItemsQuery.cs" />
+    <Compile Include="Queries\GetSystemUnclassifiedFeedItemsQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703191655000_Feed_and_FeedItems.resx">
       <DependentUpon>201703191655000_Feed_and_FeedItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703202025144_FeedItemSourceId.resx">
       <DependentUpon>201703202025144_FeedItemSourceId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211956200_FeedItem_Classification.resx">
+      <DependentUpon>201703211956200_FeedItem_Classification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703212034300_FeedItem_IsTrained.resx">
+      <DependentUpon>201703212034300_FeedItem_IsTrained.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

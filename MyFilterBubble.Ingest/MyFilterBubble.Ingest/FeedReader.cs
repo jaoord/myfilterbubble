@@ -1,4 +1,5 @@
 ﻿using AngleSharp;
+using MyFilterBubble.DAL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,14 +12,14 @@ namespace MyFilterBubble.Ingest
 
         }
 
-        public async Task<List<RawFeedItem>> RetrieveFeed(string url)
+        public async Task<List<RawFeedItemDto>> RetrieveFeed(FeedDto feed)
         {
-            Console.WriteLine($"Fetching feed {url}");
+            Console.WriteLine($"Fetching feed {feed.Url}");
 
-            List<RawFeedItem> output = new List<RawFeedItem>();
+            List<RawFeedItemDto> output = new List<RawFeedItemDto>();
 
             var config = Configuration.Default.WithDefaultLoader();
-            var document = await BrowsingContext.New(config).OpenAsync(url);
+            var document = await BrowsingContext.New(config).OpenAsync(feed.Url);
             var items = document.QuerySelectorAll("item");
 
             foreach(var item in items)
@@ -31,8 +32,9 @@ namespace MyFilterBubble.Ingest
                 var pubDateEl = item.QuerySelector("pubDate");
                 DateTime.TryParse(pubDateEl.TextContent, out DateTime pubDate);
 
-                output.Add(new RawFeedItem()
+                output.Add(new RawFeedItemDto()
                 {
+                    FeedId = feed.Id,
                     Guid = guidEl.TextContent,
                     Title = titleEl.TextContent,
                     Description = descriptionEl.TextContent,

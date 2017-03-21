@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace MyFilterBubble.DAL.Queries
 {
-    public class GetFeedsQuery
+    public class GetStaleFeedsQuery
     {
-        public GetFeedsQuery()
+        public GetStaleFeedsQuery()
         {
 
         }
 
-        public IEnumerable<FeedDto> GetStaleFeeds()
+        public IEnumerable<FeedDto> Execute()
         {
             var staleTime = DateTime.UtcNow.AddMinutes(-15);
             using (var db = new MyFilterBubbleContext())

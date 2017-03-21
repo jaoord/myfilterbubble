@@ -16,6 +16,8 @@ namespace MyFilterBubble.DAL
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Feed, FeedDto>();
+                cfg.CreateMap<FeedItem, UnclassifiedFeedItemDto>();
+                cfg.CreateMap<FeedItem, UserClassifiedFeedItemDto>();
             });
         }
     }
