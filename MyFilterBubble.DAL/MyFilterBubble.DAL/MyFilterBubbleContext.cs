@@ -20,8 +20,6 @@ namespace MyFilterBubble.DAL
         {
             modelBuilder.Configurations.Add(new FeedConfiguration());
             modelBuilder.Configurations.Add(new FeedItemConfiguration());
-            
-
             base.OnModelCreating(modelBuilder);
         }
     }

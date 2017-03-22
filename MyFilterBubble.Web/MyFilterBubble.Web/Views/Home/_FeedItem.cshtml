@@ -1,0 +1,23 @@
+﻿@model FeedItemOverviewDto
+
+<div class="row">
+    <div class="col-md-12 feed-item-heading">
+        <h2>@Model.Title</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 feed-item-text">
+        @Html.Raw(Model.Text)
+    </div>
+</div>
+
+<div class="row mg-t-20 mg-b-20">
+    <div class="col-md-2 col-xs-6"><a href="" class="btn btn-sm btn-block btn-primary"><i class="glyphicon glyphicon-thumbs-up"></i> like</a></div>
+    <div class="col-md-2 col-xs-6"><a href="" class="btn btn-sm btn-block btn-default"><i class="glyphicon glyphicon-thumbs-down"></i> dislike</a></div>
+    <div class="col-md-8 col-xs-12 text-right">
+        <small>
+            @Model.PublishDateTimeUtc.ToLocalTime().ToLongDateString()
+            @Model.PublishDateTimeUtc.ToLocalTime().ToShortTimeString()
+        </small>
+    </div>
+</div>
