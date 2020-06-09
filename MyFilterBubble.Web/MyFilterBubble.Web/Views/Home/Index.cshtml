@@ -1,0 +1,10 @@
+﻿@model List<FeedItemOverviewDto>
+@{
+    ViewBag.Title = "News";
+}
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_FeedItem", item);
+}

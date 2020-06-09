@@ -1,0 +1,29 @@
+﻿div.container {
+    max-width:640px;
+}
+
+.feed-item-heading h2 {
+    font-family:'Lora',serif;
+    font-size:40px;
+    font-weight:normal;
+}
+
+.feed-item-text {
+    font-family: 'PT Serif', serif;
+    font-size:14px;
+}
+
+.feed-item-text h1,
+.feed-item-text h2,
+.feed-item-text h3,
+.feed-item-text h4,
+.feed-item-text h5,
+.feed-item-text h6 {
+    font-family: 'PT Serif', serif;
+    font-size: inherit;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.mg-t-20 {margin-top:20px !important;}
+.mg-b-20 {margin-bottom: 20px !important;}
